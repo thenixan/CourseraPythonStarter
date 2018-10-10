@@ -17,7 +17,7 @@ if x2 < c2:
 if y2 < z2:
     y2, z2 = z2, y2
 
-if x1 == x2 and y1 == y2 and z1 == z1:
+if x1 == x2 and y1 == y2 and z1 == z2:
     print("Boxes are equal")
 elif x1 <= x2 and y1 <= y2 and z1 <= z2:
     print("The first box is smaller than the second one")
