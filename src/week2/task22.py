@@ -1,9 +1,9 @@
 k, m, n = int(input()), int(input()), int(input())
 
-required = m * n * 2
+fits = n % k == 0
 
-l = n % k
+times = (n // k) * 2
+if not fits:
+    times = times + 1
 
-s = (n // k) * 2 * m
-
-print(s + (l * m))
+print(times * m)
