@@ -3,7 +3,9 @@ k, m, n = int(input()), int(input()), int(input())
 not_fits = n % k
 
 times = n // k
-if not_fits == 0:
+if n < k:
+    diff = 2
+elif not_fits == 0:
     diff = 0
 elif k // 2 >= not_fits:
     diff = 1
