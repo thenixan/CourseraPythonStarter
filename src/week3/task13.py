@@ -5,58 +5,38 @@ d = float(input())
 e = float(input())
 f = float(input())
 
-epsilon = 10 ** -6
-
-koef = 0
-
-if (a < -epsilon or epsilon < a) and (b < -epsilon or epsilon < b) and (
-        e < -epsilon or epsilon < e):
-    p1 = c / a
-    p2 = d / b
-    p3 = f / e
-    koef = 1
-elif (c < -epsilon or epsilon < c) and (d < -epsilon or epsilon < d) and (
-        f < -epsilon or epsilon < f):
-    p1 = a / c
-    p2 = b / d
-    p3 = e / f
-    koef = 1
-else:
-    koef = 0
-
-if koef == 1:
-    if -epsilon < p1 - p2 < epsilon and -epsilon < p2 - p3 < epsilon:
-        print(5)
-    elif -epsilon < p1 - p2 < epsilon and (
-            p2 - p3 < -epsilon or epsilon < p2 - p3):
-        print(0)
-    else:
-        x = (d * e - f * b) / (d * a - b * c)
-        y = (f * a - e * c) / (d * a - b * c)
-        print(2, x, y)
-else:
-    if -epsilon < a < epsilon and -epsilon < b < epsilon and -epsilon < c < \
-            epsilon and -epsilon < d < epsilon:
-        print(5)
-    elif -epsilon < b < epsilon and -epsilon < d < epsilon:
-        if a < -epsilon or epsilon < a:
+if a == 0 and b == 0 and c == 0 and d == 0 and e == 0 and f == 0:
+    print(5)
+elif a * d == b * c and a * f != c * e:
+    print(0)
+elif a == 0 and b == 0 and e != 0:
+    print(0)
+elif c == 0 and d == 0 and f != 0:
+    print(0)
+elif a == 0 and c == 0 and b * f != d * e:
+    print(0)
+elif b == 0 and d == 0 and a * f != c * e:
+    print(0)
+elif a * d == b * c and a * f == c * e:
+    if b == 0 and d == 0:
+        if a != 0 and c != 0:
             print(3, e / a)
-        elif c < -epsilon or epsilon < c:
-            print(3, f / c)
-        else:
-            print(0)
-    elif -epsilon < a < epsilon and -epsilon < c < epsilon:
-        if b < -epsilon or epsilon < b:
+        elif a == 0:
+            if e == 0:
+                print(3, f / c)
+        elif c == 0:
+            if f == 0:
+                print(3, e / a)
+    elif a == 0 and c == 0:
+        if b != 0:
             print(4, e / b)
-        elif d < -epsilon or epsilon < d:
+        elif d != 0:
             print(4, f / d)
-        else:
-            print(0)
-    elif -epsilon < d * a - b * c < epsilon:
+    elif b != 0:
         print(1, -a / b, e / b)
-    elif -epsilon < d * a - b * c < epsilon:
-        print(0)
-    else:
-        x = (d * e - f * b) / (d * a - b * c)
-        y = (f * a - e * c) / (d * a - b * c)
-        print(2, x, y)
+    elif d != 0:
+        print(1, -c / d, f / d)
+else:
+    x = (e * d - b * f) / (a * d - b * c)
+    y = (a * f - e * c) / (a * d - b * c)
+    print(2, x, y)
